@@ -1,0 +1,225 @@
+/* =====================================================
+   sursa.css
+   Stylesheet for the Enrollment/Sign-Up Form with RSA
+   (Asymmetric Encryption/Decryption) - PB1-LQ1
+   ===================================================== */
+
+/* ---- Reset & base ---- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0f172a; /* deep navy background, evokes "secure system" feel */
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+/* ---- Header ---- */
+.site-header {
+  text-align: left;
+  border-bottom: 2px solid #1e293b;
+  padding-bottom: 16px;
+  margin-bottom: 28px;
+}
+
+.site-header h1 {
+  margin: 0 0 6px 0;
+  font-size: 28px;
+  color: #f8fafc;
+}
+
+.subtitle {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ---- Layout grid: form on the left, results on the right ---- */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+}
+
+/* Stack into a single column on small/mobile screens */
+@media (max-width: 800px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Shared card style ---- */
+.card {
+  background-color: #111827;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 19px;
+  color: #f8fafc;
+  border-left: 4px solid #ca8a04; /* amber accent bar */
+  padding-left: 10px;
+}
+
+/* ---- Form styling ---- */
+#signupForm label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+#signupForm input,
+#signupForm select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 5px;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  font-size: 14px;
+}
+
+#signupForm input:focus,
+#signupForm select:focus {
+  outline: 2px solid #ca8a04;
+  outline-offset: 1px;
+  border-color: #ca8a04;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.btn {
+  flex: 1 1 200px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0f172a;
+  transition: filter 0.15s ease-in-out;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:disabled {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+/* Distinguish the two key-size actions with two accent colors */
+.btn-1024 {
+  background-color: #38bdf8; /* light blue = smaller/faster key */
+}
+
+.btn-3072 {
+  background-color: #ca8a04; /* amber/gold = stronger/larger key */
+}
+
+.form-error {
+  color: #f87171;
+  font-size: 13px;
+  min-height: 18px;
+  margin-top: 10px;
+}
+
+/* ---- Results panel ---- */
+.hint {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 0;
+}
+
+.result-block {
+  margin-top: 18px;
+  padding: 14px 16px;
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+}
+
+.result-block h3 {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  color: #f8fafc;
+}
+
+.placeholder {
+  color: #64748b;
+  font-size: 13px;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Each encrypted/decrypted field row */
+.field-row {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.field-row .field-label {
+  color: #94a3b8;
+  display: inline-block;
+  width: 90px;
+  vertical-align: top;
+}
+
+/* Monospace styling for cryptographic/key material so it reads as data, not prose */
+.crypto-text {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 11.5px;
+  color: #7dd3fc;
+  word-break: break-all;
+  background-color: #1e293b;
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.decrypted-text {
+  color: #86efac; /* green to signal "successfully recovered" plaintext */
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+}
+
+.key-box {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #334155;
+}
+
+.key-label {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 6px 0 2px;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  margin-top: 36px;
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+}

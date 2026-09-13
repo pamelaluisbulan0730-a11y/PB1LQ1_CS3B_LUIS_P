@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Enrollment / Sign-Up Form with RSA Encryption</title>
+
+  <!-- Link to external stylesheet -->
+  <link rel="stylesheet" href="sursa.css">
+
+  <!-- JSEncrypt library (used for RSA key generation, encryption, and decryption) -->
+  <script src="https://cdn.jsdelivr.net/npm/jsencrypt@latest/bin/jsencrypt.min.js"></script>
+</head>
+<body>
+
+  <div class="page-wrap">
+
+    <!-- ============ HEADER ============ -->
+    <header class="site-header">
+      <h1>Student Enrollment / Sign-Up</h1>
+      <p class="subtitle">RSA (Asymmetric) Encryption Demonstration &mdash; PB1-LQ1</p>
+    </header>
+
+    <div class="main-grid">
+
+      <!-- ============ LEFT: ENROLLMENT FORM ============ -->
+      <section class="card form-card">
+        <h2>Enrollment Details</h2>
+
+        <!-- Sign-up form. We don't actually submit this anywhere -
+             the JS grabs the field values when a button is clicked. -->
+        <form id="signupForm">
+
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="Juan D. Dela Cruz" required>
+
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" required>
+
+          <label for="yearLevel">Year Level</label>
+          <select id="yearLevel" required>
+            <option value="" disabled selected>Select year level</option>
+            <option value="1st Year">1st Year</option>
+            <option value="2nd Year">2nd Year</option>
+            <option value="3rd Year">3rd Year</option>
+            <option value="4th Year">4th Year</option>
+          </select>
+
+          <label for="gender">Gender</label>
+          <select id="gender" required>
+            <option value="" disabled selected>Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="juandelacruz" required>
+
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter a password" required>
+
+          <!-- Two separate buttons: one per required key size -->
+          <div class="button-row">
+            <button type="button" id="btn1024" class="btn btn-1024">
+              Encrypt &amp; Decrypt (1024-bit RSA)
+            </button>
+            <button type="button" id="btn3072" class="btn btn-3072">
+              Encrypt &amp; Decrypt (3072-bit RSA)
+            </button>
+          </div>
+
+          <p id="formError" class="form-error"></p>
+        </form>
+      </section>
+
+      <!-- ============ RIGHT: RESULTS PANEL ============ -->
+      <section class="card result-card">
+        <h2>RSA Output</h2>
+        <p class="hint">Click a button on the left to generate a fresh RSA key pair of that
+          size, encrypt every field with the <strong>public key</strong>, then decrypt it
+          back with the <strong>private key</strong>.</p>
+
+        <!-- Result block: 1024-bit -->
+        <article id="result1024" class="result-block">
+          <h3>1024-bit RSA Result</h3>
+          <p class="placeholder">No data yet. Click "Encrypt &amp; Decrypt (1024-bit RSA)".</p>
+        </article>
+
+        <!-- Result block: 3072-bit -->
+        <article id="result3072" class="result-block">
+          <h3>3072-bit RSA Result</h3>
+          <p class="placeholder">No data yet. Click "Encrypt &amp; Decrypt (3072-bit RSA)".</p>
+        </article>
+      </section>
+
+    </div>
+
+    <footer class="site-footer">
+      <p>PB1-LQ1 &mdash; Enrollment/Sign-Up Form with RSA (Asymmetric Encryption/Decryption)</p>
+    </footer>
+  </div>
+
+  <!-- Link to external JS logic -->
+  <script src="sursa.js"></script>
+</body>
+</html>
